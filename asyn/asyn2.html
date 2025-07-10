@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bomba Cultural - Opción Múltiple</title>
+</head>
+<body>
+  <style>
+    body {
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh; margin: 0;
+      background: #1a1a1a; color: #fff;
+      font-family: 'Arial', sans-serif;
+    }
+
+    #game {
+      background: #2a2a2a; padding: 25px; border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6); width: 350px; text-align: center;
+    }
+    #timer { font-size: 2.5rem; margin: 15px 0; font-weight: bold; color: #4CAF50; }
+    #question { margin: 20px 0; min-height: 80px; font-size: 1.1rem; line-height: 1.4; }
+    button {
+      font-size: 1rem; padding: 10px; margin: 8px 0;
+      border: none; border-radius: 8px; width: 95%;
+      transition: all 0.2s; cursor: pointer;
+    }
+    #startBtn { background: #4CAF50; color: white; }
+    .skip-btn { background: #ff4444; }
+    button:hover:not(:disabled) { opacity: 0.9; }
+    button:disabled { background: #666; cursor: not-allowed; }
+    #status { margin: 15px 0; min-height: 50px; }
+    #game-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    .info-item { font-size: 0.9em; color: #888; }
+    .info-item span { color: #fff; }
+    .options-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 15px 0;
+    }
+    .option-btn {
+      background: #444;
+      color: white;
+      padding: 15px;
+      text-align: left;
+      border: 2px solid transparent;
+    }
+    .option-btn.correct { 
+      background: #4CAF50 !important;
+      border-color: #45a049 !important;
+    }
+    .option-btn.incorrect {
+      background: #ff4444 !important;
+      border-color: #cc0000 !important;
+    }
+  </style>
+
+  <div id="game">
+    <div id="game-info">
+      <div class="info-item">Dificultad: <span id="difficulty">-</span></div>
+      <div class="info-item">Puntos: <span id="points">0</span></div>
+    </div>
+    <div id="timer">60</div>
+    <div id="question">Presiona Iniciar para comenzar</div>
+    <div id="options" class="options-container"></div>
+    <button id="startBtn">Iniciar Juego</button>
+    <button id="skipBtn" disabled class="skip-btn">Saltar Pregunta (-1s)</button>
+    <div id="status"></div>
+  </div>
+
+  <script>
+    let preguntas = [];
+    let preguntasRestantes = [];
+    let timeLeft = 60;
+    let timerId;
+    let currentQuestion = null;
+    let puntos = 0;
+
+    const configDificultad = {
+      'fácil':   { puntos: 50, bonus: 3, penal: 1 },
+      'media':   { puntos: 100, bonus: 5, penal: 3 },
+      'difícil': { puntos: 150, bonus: 10, penal: 4 }
+    };
+
+    // Función para mezclar opciones
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    async function cargarPreguntas() {
+      try {
+        const res = await fetch('preguntas2.json');
+        if (!res.ok) throw new Error('Error cargando preguntas');
+        preguntas = await res.json();
+        preguntasRestantes = [...preguntas];
+      } catch (e) {
+        document.getElementById('status').textContent = 'Error cargando preguntas.';
+        console.error(e);
+      }
+    }
+
+    function normalizarRespuesta(texto) {
+      return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9 ]/g, "")
+        .trim();
+    }
+
+    function generarPregunta() {
+      if (preguntasRestantes.length === 0) throw new Error('No hay más preguntas.');
+      const i = Math.floor(Math.random() * preguntasRestantes.length);
+      const pregunta = preguntasRestantes.splice(i, 1)[0];
+      
+      return {
+        pregunta: pregunta.pregunta,
+        respuesta: normalizarRespuesta(pregunta.respuesta),
+        dificultad: pregunta.dificultad || 'fácil',
+        opciones: shuffleArray([...pregunta.opciones])
+      };
+    }
+
+    function actualizarTemporizador() {
+      const timerEl = document.getElementById('timer');
+      timerEl.textContent = timeLeft;
+      timerEl.style.color = timeLeft <= 10 ? '#ff4444' : '#4CAF50';
+    }
+
+    function actualizarInterfaz() {
+      document.getElementById('question').textContent = currentQuestion.pregunta;
+      document.getElementById('difficulty').textContent = currentQuestion.dificultad.toUpperCase();
+      document.getElementById('points').textContent = puntos;
+
+      const optionsContainer = document.getElementById('options');
+      optionsContainer.innerHTML = '';
+      
+      currentQuestion.opciones.forEach(opcion => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = opcion;
+        btn.onclick = () => manejarRespuesta(opcion);
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function manejarRespuesta(opcionSeleccionada) {
+      const respuestaUsuario = normalizarRespuesta(opcionSeleccionada);
+      const config = configDificultad[currentQuestion.dificultad];
+      
+      // Deshabilitar todas las opciones
+      document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
+
+      // Verificar respuesta
+      if (respuestaUsuario === currentQuestion.respuesta) {
+        puntos += config.puntos;
+        timeLeft += config.bonus;
+        document.getElementById('status').textContent = `✓ Correcto! +${config.puntos}p, +${config.bonus}s`;
+      } else {
+        timeLeft -= config.penal;
+        document.getElementById('status').textContent = `✗ Incorrecto! -${config.penal}s`;
+      }
+
+      // Resaltar respuestas
+      document.querySelectorAll('.option-btn').forEach(btn => {
+        const opcion = normalizarRespuesta(btn.textContent);
+        if (opcion === currentQuestion.respuesta) {
+          btn.classList.add('correct');
+        } else if (opcion === respuestaUsuario) {
+          btn.classList.add('incorrect');
+        }
+      });
+
+      // Siguiente pregunta después de 1.5 segundos
+      setTimeout(() => {
+        try {
+          currentQuestion = generarPregunta();
+          actualizarInterfaz();
+        } catch (e) {
+          finalizarJuego(true);
+        }
+      }, 1500);
+
+      actualizarTemporizador();
+    }
+
+    function manejarSalto() {
+      const config = configDificultad[currentQuestion.dificultad];
+      const penal = config.penal;
+
+      if (timeLeft > penal) {
+        timeLeft -= penal;
+        document.getElementById('status').textContent = `Pregunta saltada (-${penal}s)`;
+        
+        try {
+          currentQuestion = generarPregunta();
+          actualizarInterfaz();
+        } catch (e) {
+          finalizarJuego(true);
+        }
+      } else {
+        document.getElementById('status').textContent = 'No hay suficiente tiempo para saltar.';
+      }
+      actualizarTemporizador();
+    }
+
+    function finalizarJuego(ganaste) {
+      clearInterval(timerId);
+      document.getElementById('startBtn').disabled = false;
+      document.getElementById('skipBtn').disabled = true;
+      document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
+      
+      document.getElementById('status').textContent = ganaste 
+        ? '¡Ganaste! Completaste todas las preguntas.'
+        : `¡Juego terminado! Puntos: ${puntos}`;
+    }
+
+    function iniciarJuego() {
+      document.getElementById('startBtn').disabled = true;
+      document.getElementById('skipBtn').disabled = false;
+      puntos = 0;
+      preguntasRestantes = [...preguntas];
+      
+      try {
+        currentQuestion = generarPregunta();
+        timeLeft = 60;
+        actualizarInterfaz();
+      } catch (e) {
+        document.getElementById('status').textContent = e.message;
+        return;
+      }
+
+      timerId = setInterval(() => {
+        timeLeft--;
+        actualizarTemporizador();
+        if (timeLeft <= 0) finalizarJuego(false);
+      }, 1000);
+    }
+
+    // Event Listeners
+    document.getElementById('startBtn').addEventListener('click', iniciarJuego);
+    document.getElementById('skipBtn').addEventListener('click', manejarSalto);
+    
+    // Cargar preguntas al iniciar
+    cargarPreguntas();
+  </script>
+</body>
+</html>

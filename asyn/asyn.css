@@ -1,0 +1,36 @@
+
+    body {
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh; margin: 0;
+      background: #1a1a1a; color: #fff;
+      font-family: 'Arial', sans-serif;
+    }
+    #game {
+      background: #2a2a2a; padding: 25px; border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6); width: 350px; text-align: center;
+    }
+    #timer { font-size: 2.5rem; margin: 15px 0; font-weight: bold; color: #4CAF50; }
+    #question { margin: 20px 0; min-height: 80px; font-size: 1.1rem; line-height: 1.4; }
+    input, button {
+      font-size: 1rem; padding: 10px; margin: 8px 0;
+      border: none; border-radius: 8px; width: 95%;
+    }
+    input { background: #444; color: #fff; }
+    button {
+      background: #4CAF50; color: white; cursor: pointer; transition: all 0.2s;
+    }
+    button:hover:not(:disabled) { background: #45a049; }
+    button:disabled { background: #666; cursor: not-allowed; }
+    #status { margin: 15px 0; min-height: 50px; }
+    .skip-btn {
+      background: #ff4444 !important;
+      margin-top: 15px;
+    }
+    .skip-btn:hover:not(:disabled) { background: #cc0000 !important; }
+    #game-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    .info-item { font-size: 0.9em; color: #888; }
+    .info-item span { color: #fff; }

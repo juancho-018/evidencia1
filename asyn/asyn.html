@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bomba Cultural</title>
+  <link rel="stylesheet" href="asyn.css">
+</head>
+<body>
+  <div id="game">
+    <div id="game-info">
+      <div class="info-item">Dificultad: <span id="difficulty">-</span></div>
+      <div class="info-item">Puntos: <span id="points">0</span></div>
+    </div>
+    <div id="timer">60</div>
+    <div id="question">Presiona Iniciar para comenzar</div>
+    <input type="text" id="answer" disabled placeholder="Tu respuesta...">
+    <button id="startBtn">Iniciar Juego</button>
+    <button id="submitBtn" disabled>Verificar</button>
+    <button id="skipBtn" disabled class="skip-btn">Saltar Pregunta (-1s)</button>
+    <div id="status"></div>
+  </div>
+  <script src="asyn.js"></script>
+</body>
+</html>

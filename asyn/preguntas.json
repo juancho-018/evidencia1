@@ -1,0 +1,326 @@
+[
+  {
+    "pregunta": "Capital de Francia",
+    "respuesta": "paris",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Autor de El Quijote",
+    "respuesta": "miguel de cervantes",
+    "categoria": "literatura",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Elemento químico con símbolo O",
+    "respuesta": "oxigeno",
+    "categoria": "ciencia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "País con forma de bota",
+    "respuesta": "italia",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Año del descubrimiento de América",
+    "respuesta": "1492",
+    "categoria": "historia",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Capital de España",
+    "respuesta": "madrid",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Autor de Romeo y Julieta",
+    "respuesta": "william shakespeare",
+    "categoria": "literatura",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Planeta rojo del sistema solar",
+    "respuesta": "marte",
+    "categoria": "ciencia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "País conocido como la tierra de los canguros",
+    "respuesta": "australia",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Batalla que marcó el fin de la guerra civil española",
+    "respuesta": "batalla del ebro",
+    "categoria": "historia",
+    "dificultad": "difícil"
+  },
+  {
+    "pregunta": "Autor de La Odisea",
+    "respuesta": "homero",
+    "categoria": "literatura",
+    "dificultad": "difícil"
+  },
+  {
+    "pregunta": "Número pi (π) aproximado",
+    "respuesta": "3.14",
+    "categoria": "matematicas",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Composición química del agua",
+    "respuesta": "h2o",
+    "categoria": "ciencia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Capital de Italia",
+    "respuesta": "roma",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Revolución que comenzó en 1789 en Francia",
+    "respuesta": "revolucion francesa",
+    "categoria": "historia",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Autor de El Principito",
+    "respuesta": "antoine de saint-exupery",
+    "categoria": "literatura",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Raíz cuadrada de 16",
+    "respuesta": "4",
+    "categoria": "matematicas",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Composición química del dióxido de carbono",
+    "respuesta": "co2",
+    "categoria": "ciencia",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Capital de Alemania",
+    "respuesta": "berlin",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Guerra que tuvo lugar entre 1914 y 1918",
+    "respuesta": "primera guerra mundial",
+    "categoria": "historia",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Autor de Don Juan Tenorio",
+    "respuesta": "tirso de molina",
+    "categoria": "literatura",
+    "dificultad": "difícil"
+  },
+  {
+    "pregunta": "Número de continentes en el mundo",
+    "respuesta": "7",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Composición química del cloruro de sodio",
+    "respuesta": "nacl",
+    "categoria": "ciencia",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Capital de Argentina",
+    "respuesta": "buenos aires",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Guerra civil estadounidense",
+    "respuesta": "guerra civil americana",
+    "categoria": "historia",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Autor de La casa de los espíritus",
+    "respuesta": "isabel allende",
+    "categoria": "literatura",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Número de planetas en el sistema solar",
+    "respuesta": "8",
+    "categoria": "ciencia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Capital de México",
+    "respuesta": "ciudad de mexico",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Guerra que tuvo lugar entre 1936 y 1939 en España",
+    "respuesta": "guerra civil española",
+    "categoria": "historia",
+    "dificultad": "difícil"
+  },
+  {
+    "pregunta": "Autor de Crónica de una muerte anunciada",
+    "respuesta": "gabriel garcia marquez",
+    "categoria": "literatura",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Número de huesos en el cuerpo humano adulto",
+    "respuesta": "206",
+    "categoria": "ciencia",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Capital de Chile",
+    "respuesta": "santiago",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Guerra que tuvo lugar entre 1861 y 1865 en Estados Unidos",
+    "respuesta": "guerra civil americana",
+    "categoria": "historia",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Autor de El amor en los tiempos del cólera",
+    "respuesta": "gabriel garcia marquez",
+    "categoria": "literatura",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Número de días en un año bisiesto",
+    "respuesta": "366",
+    "categoria": "matematicas",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Composición química del metano",
+    "respuesta": "ch4",
+    "categoria": "ciencia",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Capital de Perú",
+    "respuesta": "lima",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Guerra que tuvo lugar entre 1950 y 1953 en Corea",
+    "respuesta": "guerra de corea",
+    "categoria": "historia",
+    "dificultad": "difícil"
+  },
+  {
+    "pregunta": "Autor de La tregua",
+    "respuesta": "mario benedetti",
+    "categoria": "literatura",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Número de meses en un año",
+    "respuesta": "12",
+    "categoria": "matematicas",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Composición química del ácido clorhídrico",
+    "respuesta": "hcl",
+    "categoria": "ciencia",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Capital de Colombia",
+    "respuesta": "bogota",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Guerra que tuvo lugar entre 1917 y 1921 en Rusia",
+    "respuesta": "guerra civil rusa",
+    "categoria": "historia",
+    "dificultad": "difícil"
+  },
+  {
+    "pregunta": "Autor de El túnel",
+    "respuesta": "ernesto sabato",
+    "categoria": "literatura",
+    "dificultad": "difícil"
+  },
+  {
+    "pregunta": "Pintor de la Mona Lisa",
+    "respuesta": "leonardo da vinci",
+    "categoria": "arte",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Planeta más grande del sistema solar",
+    "respuesta": "jupiter",
+    "categoria": "ciencia",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Idioma oficial de Brasil",
+    "respuesta": "portugues",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Guerra que terminó en 1945",
+    "respuesta": "segunda guerra mundial",
+    "categoria": "historia",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Escritor de Cien años de soledad",
+    "respuesta": "gabriel garcia marquez",
+    "categoria": "literatura",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Número de lados de un hexágono",
+    "respuesta": "6",
+    "categoria": "matematicas",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Nombre del satélite natural de la Tierra",
+    "respuesta": "luna",
+    "categoria": "ciencia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Capital de Japón",
+    "respuesta": "tokio",
+    "categoria": "geografia",
+    "dificultad": "fácil"
+  },
+  {
+    "pregunta": "Primer presidente de Estados Unidos",
+    "respuesta": "george washington",
+    "categoria": "historia",
+    "dificultad": "media"
+  },
+  {
+    "pregunta": "Obra teatral famosa de Shakespeare",
+    "respuesta": "hamlet",
+    "categoria": "literatura",
+    "dificultad": "fácil"
+  }
+]

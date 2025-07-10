@@ -1,0 +1,142 @@
+[
+  {
+    "pregunta": "Capital de Francia",
+    "respuesta": "paris",
+    "categoria": "geografia",
+    "dificultad": "fácil",
+    "opciones": ["París", "Londres", "Berlín", "Madrid"]
+  },
+  {
+    "pregunta": "Autor de El Quijote",
+    "respuesta": "miguel de cervantes",
+    "categoria": "literatura",
+    "dificultad": "media",
+    "opciones": ["Miguel de Cervantes", "Gabriel García Márquez", "Pablo Neruda", "Federico García Lorca"]
+  },
+  {
+    "pregunta": "Elemento químico con símbolo O",
+    "respuesta": "oxigeno",
+    "categoria": "ciencia",
+    "dificultad": "fácil",
+    "opciones": ["Oxígeno", "Oro", "Osmio", "Oganesón"]
+  },
+  {
+    "pregunta": "País con forma de bota",
+    "respuesta": "italia",
+    "categoria": "geografia",
+    "dificultad": "fácil",
+    "opciones": ["Italia", "Grecia", "España", "Portugal"]
+  },
+  {
+    "pregunta": "Año del descubrimiento de América",
+    "respuesta": "1492",
+    "categoria": "historia",
+    "dificultad": "media",
+    "opciones": ["1492", "1500", "1485", "1510"]
+  },
+  {
+    "pregunta": "Capital de España",
+    "respuesta": "madrid",
+    "categoria": "geografia",
+    "dificultad": "fácil",
+    "opciones": ["Madrid", "Barcelona", "Valencia", "Sevilla"]
+  },
+  {
+    "pregunta": "Autor de Romeo y Julieta",
+    "respuesta": "william shakespeare",
+    "categoria": "literatura",
+    "dificultad": "media",
+    "opciones": ["William Shakespeare", "Charles Dickens", "Jane Austen", "Mark Twain"]
+  },
+  {
+    "pregunta": "Planeta rojo del sistema solar",
+    "respuesta": "marte",
+    "categoria": "ciencia",
+    "dificultad": "fácil",
+    "opciones": ["Marte", "Júpiter", "Venus", "Saturno"]
+  },
+  {
+    "pregunta": "País conocido como la tierra de los canguros",
+    "respuesta": "australia",
+    "categoria": "geografia",
+    "dificultad": "fácil",
+    "opciones": ["Australia", "Nueva Zelanda", "Indonesia", "Sudáfrica"]
+  },
+  {
+    "pregunta": "Batalla que marcó el fin de la guerra civil española",
+    "respuesta": "batalla del ebro",
+    "categoria": "historia",
+    "dificultad": "difícil",
+    "opciones": ["Batalla del Ebro", "Batalla de Stalingrado", "Batalla de Normandía", "Batalla de Berlín"]
+  },
+  {
+    "pregunta": "Autor de La Odisea",
+    "respuesta": "homero",
+    "categoria": "literatura",
+    "dificultad": "difícil",
+    "opciones": ["Homero", "Virgilio", "Dante Alighieri", "Sófocles"]
+  },
+  {
+    "pregunta": "Número pi (π) aproximado",
+    "respuesta": "3.14",
+    "categoria": "matematicas",
+    "dificultad": "fácil",
+    "opciones": ["3.14", "2.71", "1.61", "4.20"]
+  },
+  {
+    "pregunta": "Composición química del agua",
+    "respuesta": "h2o",
+    "categoria": "ciencia",
+    "dificultad": "fácil",
+    "opciones": ["H2O", "CO2", "NaCl", "O3"]
+  },
+  {
+    "pregunta": "Capital de Italia",
+    "respuesta": "roma",
+    "categoria": "geografia",
+    "dificultad": "fácil",
+    "opciones": ["Roma", "Milán", "Nápoles", "Florencia"]
+  },
+  {
+    "pregunta": "Revolución que comenzó en 1789 en Francia",
+    "respuesta": "revolucion francesa",
+    "categoria": "historia",
+    "dificultad": "media",
+    "opciones": ["Revolución Francesa", "Revolución Industrial", "Revolución Rusa", "Revolución Americana"]
+  },
+  {
+    "pregunta": "Autor de El Principito",
+    "respuesta": "antoine de saint-exupery",
+    "categoria": "literatura",
+    "dificultad": "media",
+    "opciones": ["Antoine de Saint-Exupéry", "Jules Verne", "Albert Camus", "Victor Hugo"]
+  },
+  {
+    "pregunta": "Raíz cuadrada de 16",
+    "respuesta": "4",
+    "categoria": "matematicas",
+    "dificultad": "fácil",
+    "opciones": ["4", "8", "2", "6"]
+  },
+  {
+    "pregunta": "Composición química del dióxido de carbono",
+    "respuesta": "co2",
+    "categoria": "ciencia",
+    "dificultad": "media",
+    "opciones": ["CO2", "H2O", "O2", "CH4"]
+  },
+  {
+    "pregunta": "Capital de Alemania",
+    "respuesta": "berlin",
+    "categoria": "geografia",
+    "dificultad": "fácil",
+    "opciones": ["Berlín", "Múnich", "Hamburgo", "Frankfurt"]
+  },
+  {
+    "pregunta": "Guerra que tuvo lugar entre 1914 y 1918",
+    "respuesta": "primera guerra mundial",
+    "categoria": "historia",
+    "dificultad": "media",
+    "opciones": ["Primera Guerra Mundial", "Segunda Guerra Mundial", "Guerra Fría", "Guerra de Vietnam"]
+  }
+]
