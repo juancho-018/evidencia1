@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Perfil de Usuario</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      padding: 2rem;
+    }
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 1rem;
+    }
+    p {
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Perfil de Usuario</h2>
+    <p><strong>Nombre de usuario:</strong> <%= username %></p>
+    <p><strong>ID:</strong> <%= id %></p>
+    <p><strong>Rol:</strong> <%= role %></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administrador</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .info {
+      margin-bottom: 2rem;
+      color: #555;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background-color: #f9f9f9;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    form {
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+    }
+    select, button {
+      padding: 0.4rem 0.6rem;
+      font-size: 0.9rem;
+      margin-right: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      border-color: #007bff;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .logout-btn {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .logout-btn button {
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .logout-btn button:hover {
+      background-color: #c9302c;
+    }
+    /* --- Estilos para las notificaciones --- */
+    .notification {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      color: white;
+      text-align: center;
+    }
+    .notification.success {
+      background-color: #28a745;
+    }
+    .notification.error {
+      background-color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Panel de Administrador</h1>
+    <p class="info">
+      Bienvenido, <strong><%= user.username %></strong> (rol: <%= user.role %>)
+    </p>
+    
+    <!-- Div para mostrar mensajes de éxito o error -->
+    <div id="notification-area"></div>
+
+    <p>Aquí puedes gestionar el sistema, ver usuarios registrados, estadísticas, etc.</p>
+
+    <h2>Usuarios registrados</h2>
+    <ul>
+      <% users.forEach(userItem => { %>
+        <li>
+          <strong><%= userItem.username %></strong> — Rol actual: <%= userItem.role %>
+          <!-- CORRECCIÓN: Se usa userItem.id en lugar de _id y se añade una clase para el script -->
+          <form class="role-update-form" data-user-id="<%= userItem.id %>">
+            <label for="role-<%= userItem.id %>">Cambiar rol:</label>
+            <select name="role" id="role-<%= userItem.id %>">
+              <option value="user" <%= userItem.role === 'user' ? 'selected' : '' %>>User</option>
+              <option value="admin" <%= userItem.role === 'admin' ? 'selected' : '' %>>Admin</option>
+              <option value="vendedor" <%= userItem.role === 'vendedor' ? 'selected' : '' %>>Vendedor</option>
+            </select>
+            <button type="submit">Actualizar</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+
+    <div class="logout-btn">
+      <form action="/logout" method="POST">
+        <button type="submit">Cerrar sesión</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- --- INICIO DEL SCRIPT --- -->
+  <script>
+    document.addEventListener('submit', async (event) => {
+      // Nos aseguramos de que el script solo se ejecute para los formularios de cambio de rol
+      if (!event.target.matches('.role-update-form')) {
+        return;
+      }
+
+      // 1. Prevenimos el comportamiento por defecto del formulario (que recarga la página)
+      event.preventDefault();
+
+      const form = event.target;
+      const userId = form.dataset.userId;
+      const select = form.querySelector('select[name="role"]');
+      const newRole = select.value;
+      const notificationArea = document.getElementById('notification-area');
+
+      try {
+        // 2. Enviamos la petición a la API con fetch
+        const response = await fetch(`/users/${userId}/role`, {
+          method: 'POST',
+          headers: {
+            // Le decimos al servidor que estamos enviando JSON
+            'Content-Type': 'application/json'
+          },
+          // Convertimos el dato a una cadena de texto JSON
+          body: JSON.stringify({ role: newRole })
+        });
+
+        // 3. Obtenemos la respuesta JSON de la API
+        const result = await response.json();
+
+        // 4. Actuamos según la respuesta
+        if (response.ok) { // Si la respuesta fue exitosa (status 200-299)
+          notificationArea.innerHTML = `<div class="notification success">${result.message}</div>`;
+          // Esperamos un momento para que el usuario vea el mensaje y luego recargamos
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500);
+        } else { // Si hubo un error
+          notificationArea.innerHTML = `<div class="notification error">${result.error}</div>`;
+        }
+
+      } catch (error) {
+        // En caso de un error de red o que la API no responda
+        console.error('Fetch error:', error);
+        notificationArea.innerHTML = `<div class="notification error">No se pudo conectar con el servidor.</div>`;
+      }
+    });
+  </script>
+  <!-- --- FIN DEL SCRIPT --- -->
+
+</body>
+</html>
